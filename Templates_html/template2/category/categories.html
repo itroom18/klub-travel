@@ -1,0 +1,13 @@
+{% extends "views/template2/main.html" %}
+
+
+
+{% block content %}
+<hr>
+<ul>
+{% for category in categories %}
+    <li><a href="{{host}}category/{% if category.slug %}{{category.slug}}{%else%}{{category._id}}{%endif%}/">{{category.name}}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "views/template2/main.html" %}
+
+
+{% block content %}
+<section class="section-top-26">
+          <div class="shell">
+            <div class="range text-md-left">
+              <div class="cell-lg-8">
+              
+{% for post in posts %}
+                <div class="divider divider-dashed"></div>
+                <div class="post post-variant-2">
+                  <div class="unit unit-xl-horizontal text-sm-left unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">
+                    <div class="unit-left">
+                      <div class="post-inner">
+                        <div class="reveal-inline-block"><img src="{%if post.image%}{{post.image}}{%endif%}" title="{{post.name}}" alt="{{post.name}}" width="150" height="115" alt="" class="post-image"> </div>
+                        <div class="post-caption">
+                          <ul>
+                            <li><a href="{{host}}category/{{post.categories}}.html"><span class="label label-warning">{{_categories[post.categories].name}}</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="unit-body">
+                      <div class="h5 text-bold"><a href="{{host}}post/{% if post.slug %}{{post.slug}}{%else%}{{post._id}}{%endif%}.html" class="post-link">{{post.name}}</a></div>
+                      <p>{{post.description | safe | striptags | truncate(length=200) }}</p>
+                      <div class="post-meta post-meta-hidden-outer">
+                        <div class="post-meta-hidden"> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+{% endfor %}
+                <div class="divider divider-dashed"></div>
+                {% include "views/template2/pagination.html" %}			
+ 
+              </div>
+              
+              
+              <div class="cell-lg-4 offset-top-36">
+                <!-- Sidebar-->
+                <div class="range">
+                  <div class="cell-sm-8 cell-sm-preffix-2 cell-lg-12 cell-lg-preffix-0 cell-xs-push-1 cell-lg-push-1">
+                    <div class="bg-gray-base context-dark section-top-15 section-bottom-30 inset-p-left-6 inset-p-right-6">
+                       {% include "views/template2/search/search.html" %}
+                    </div>
+                    <div class="section-top-15 section-bottom-30 inset-p-left-6 inset-p-right-6">
+                        {% include "views/template1/banner_left.html" %}  
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+</section>
+
+
+{% endblock %}

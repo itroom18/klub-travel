@@ -1,0 +1,61 @@
+
+{#
+  <ul class="pagination">
+    {% if prev %}
+    <li>
+      <a href="/post/?pages={{ page - 1 }}" aria-label="Previous">
+        <span aria-hidden="true">&larr;</span>Previous
+      </a>
+    </li>
+    {%endif%}
+    
+    {% for p in pages%}
+        <li><a href="/post/?pages={{ p }}">{{p}}</a></li>
+    {%endfor%}
+    
+    {% if next  %}
+    <li>
+      <a href="post/?pages={{ page + 1 }}" aria-label="Next">
+        Next<span aria-hidden="true">&rarr;</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+
+#}
+
+{% if pages|length > 1 %}
+	{% set pagination_max_range = 3 %}
+    {% set more_before = 0 %}
+	{% set more_after = 0 %}
+    {% if path%}
+        {% set mp = path %}
+    {% else %}
+        {% set mp = host~'index' %}
+    {% endif %}
+    <nav class="text-center pagination_block">
+        <ul class="pagination">
+            {% if prev %}<li {%if 1 == page%}class="disabled hidden"{%endif%}><a href="{%if page - 2 > 0 %}{{mp}}-{{ page - 2 }}{%else%}{{mp}}{% endif %}.html" aria-label="Previous"><span aria-hidden="true">«</span></a></li>{%endif%}
+            {% for i in pages %}
+                {%if total > pagination_max_range*2+1 and i < page - pagination_max_range and i != 1 and i < total - (pagination_max_range*2+1)%}
+                    {% set more_before = more_before + 1 %}
+                    {%if more_before <= 1%}
+                        <li class="disabled"><a href="#" onclick="return false;">...</a></li>
+                    {%endif%}
+                {% elif total > pagination_max_range*2+1 and i > page + pagination_max_range and i != total and i > pagination_max_range*2+1%}
+                    {% set more_after = more_after + 1 %}
+                    {%if more_after <= 1%}
+                        <li class="disabled"><a href="#" onclick="return false;">...</a></li>
+                    {%endif%}
+                {%else%}
+                    {% if i == 1 %}
+                      <li {%if i == page %}class="active"{% endif %}><a href="{{mp}}.html">{{i}}</a></li>
+                    {%else%}
+                      <li {%if i == page %}class="active"{% endif %}><a href="{{mp}}-{{i-1}}.html">{{i}}</a></li>
+                    {%endif%}
+                {%endif%}
+            {%endfor%}
+            {% if next  %}<li {%if total == page %}class="disabled hidden"{%endif%}><a href="{{mp}}-{{ page }}.html" aria-label="Next"><span aria-hidden="true">»</span></a></li>{% endif %}
+        </ul>
+    </nav>
+{% endif %}

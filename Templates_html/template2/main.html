@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	{% block title %}
+		<title>{% if _site_.title %} {{_site_.title}} {%else%} {{_site_.domains}} {% endif %}</title>
+		<meta name="title" content="{% if _site_.title %} {{_site_.title}} {%else%} {{_site_.domains}} {% endif %}" />
+	{% endblock %}
+	{% block keywords %}<meta name="keywords" content="{% if _site_.keywords %} {{_site_.keywords}} {% endif %}">{% endblock %}
+	{% block description %}<meta name="description" content="{% if _site_.description %} {{_site_.description}} {% endif %}" />{% endblock %}
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="google-site-verification" content="TifwjUMcwSxVyePyAgG2vJcGY2c2AX0gFavTMGW1cUU" />
+	{% block meta %}{% endblock %}
+</head>
+<body>
+    <!-- Page-->
+    <div class="page text-center">
+      <!-- Page Header-->
+	  {% block header %}
+      <header class="page-head">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap" style="height: 272px;">
+          <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-lg-layout="rd-navbar-static" class="rd-navbar rd-navbar-default rd-navbar-static" data-stick-up-offset="198" data-md-layout="rd-navbar-fullwidth">
+            <div class="rd-navbar-inner">
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand">
+                  {% if _site_.logo %}
+                    <a href="/" class="brand-name brand-name-flex">
+                      <img src="{{_site_.logo}}" alt="{{_site_.domains}}" title="{{_site_.domains}}" >
+                    </a>
+                  {%else%}
+                    {{_site_.domains}}
+                  {% endif %}
+                </div>
+              </div>
+              <!-- RD Navbar Wrap-->
+              <div class="rd-navbar-nav-wrap">
+                <!-- RD Navbar Nav-->
+                <ul class="rd-navbar-nav">
+                    {% for slug, category in _categories %}
+                        <li><a href="{{host}}category/{% if category.slug %}{{category.slug}}{%else%}{{category._id}}{%endif%}.html"">{{category.name}}</a></li>
+                    {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+    
+
+    {% endblock %}
+    {% include "views/template2/banner_top.html" %}
+    {% include "views/template2/flash.html" %}
+	</div>
+
+      <!-- Page Content-->
+      <main class="page-content">
+
+  {% block content %}
+  
+  {% endblock %}
+
+     </main>
+     
+	<div class="banner-main">
+		<div class="container">
+{% include "views/template2/banner_bottom.html" %}
+		</div>
+	</div>
+     
+      <!-- Page Footer-->
+      <footer class="page-footer">
+        <div class="shell offset-top-60">
+          <hr class="divider divider-lg offset-0">
+          <div class="range text-center text-lg-left section offset-top-0">
+            {% if  tags != '' %}
+            <div class="cell-sm-preffix-1 cell-sm-10 cell-lg-4 cell-xl-3 cell-lg-preffix-0 offset-top-45 offset-lg-top-0 cell-lg-push-3">
+              <h6 class="text-bold">Tags</h6>
+              <div class="offset-top-20">
+                <ul class="element-groups-sm-custom small text-italic">
+                      {% for slug, tag in tags %}
+                       <li><a href="{{host}}post/tag/{{tag.slug}}.html" class="btn btn-default btn-sm btn-rect text-regular font-accent" >{{tag.name}}</a></li>
+                      {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+            <div class="cell-xs-6 cell-xl-3 cell-lg-2 offset-top-45 offset-lg-top-0">
+              <h6>Categories</h6>
+              <ul class="small text-center text-lg-left list-unstyled list text-italic font-accent">
+				{% for slug,category in _categories %}
+					<li><a href="{{host}}category/{% if category.slug %}{{category.slug}}{%else%}{{category._id}}{%endif%}.html">{{category.name}}</a></li>
+				{% endfor %}
+              </ul>
+            </div>
+          </div>
+          <hr class="divider divider-offset-top-52">
+          <div class="range text-left offset-top-36">
+
+            <div class="cell-md-7 text-center text-md-left offset-top-25 offset-md-top-0">
+              <div class="brand reveal-md-inline-block"><a href="/" class="brand-name">{{_site_.domains}}</a></div>
+              <p class="reveal-md-inline-block offset-top-20 offset-top-md-0 small">© Copyright 2016.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- FOOTER_LINK -->
+    </div>
+
+    {{_site_.metrics | safe}}
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,500,300,300italic,500%7CNoto+Serif:400italic,700%7CNoto+Sans:700,700italic">
+	<link rel="stylesheet" href="{{host}}template2/css/style.css">
+	<!--[if lt IE 10]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <!-- Java script-->
+	<script src="{{host}}template2/bootstrap/js/bootstrap.min.js"></script>
+  
+    </body>
+</html>
