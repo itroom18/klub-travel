@@ -31454,3 +31454,7 @@ label span {
   background-position: top;
   margin: 0 30px;
 }
+
+body {
+  background-color: #e3f3f2;
+}
