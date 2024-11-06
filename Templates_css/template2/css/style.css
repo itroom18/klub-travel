@@ -29931,3 +29931,7 @@ label span {
   font-family: 'Bip';
   margin-top: 0 !important;
 }
+
+.logo {
+  text-align: center;
+}
