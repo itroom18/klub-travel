@@ -31443,3 +31443,14 @@ label span {
 .post .post-default .post-variant-3 h2 {
   font-family: "Bip";
 }
+
+.animation {
+  height: 300px;
+  background-attachment: fixed;
+  backface-visibility: hidden;
+  background-image: url("../img/animation.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+  margin: 0 30px;
+}

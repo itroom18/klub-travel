@@ -43,7 +43,7 @@
                 <!-- RD Navbar Nav-->
                 <ul class="rd-navbar-nav">
                     {% for slug, category in _categories %}
-                        <li><a href="{{host}}category/{% if category.slug %}{{category.slug}}{%else%}{{category._id}}{%endif%}.html"">{{category.name}}</a></li>
+                        <li><a href="{{host}}category/{% if category.slug %}{{category.slug}}{%else%}{{category._id}}{%endif%}.html">{{category.name}}</a></li>
                     {% endfor %}
                 </ul>
               </div>
@@ -60,6 +60,13 @@
 
       <!-- Page Content-->
       <main class="page-content">
+        
+        <div class="uk-section-default">
+          <div
+            uk-img=""
+            class="uk-background-norepeat uk-background-top-center uk-background-fixed uk-section animation"
+          ></div>
+        </div>
 
   {% block content %}
   
