@@ -96,6 +96,10 @@
               <div class="cell-lg-8">
 
 {% for post in posts %}
+                {% if loop.index == 3 %}
+                  <div class="divider divider-dashed"></div>
+                  {% include "views/template2/banner_top.html" %}
+                {% endif %}
                 <div class="divider divider-dashed"></div>
                 <div class="post post-variant-2">
                   <div class="unit unit-xl-horizontal text-sm-left unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">

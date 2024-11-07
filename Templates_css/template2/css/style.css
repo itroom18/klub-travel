@@ -31421,14 +31421,34 @@ label span {
 .logo {
   text-align: center;
 }
+.post.post-variant-2 {
+  border-top-left-radius: 0em 0em;
+  border-bottom-right-radius: 0em 0em;
+  border-top-right-radius: 15em 15em;
+  border-bottom-left-radius: 10em 10em;
+  background: #ffff;
+}
+.post.post-variant-2 img {
+  border-top-left-radius: 0em 0em;
+  border-bottom-right-radius: 0em 0em;
+  border-top-right-radius: 15em 15em;
+  border-bottom-left-radius: 10em 10em;
+  width: 100%;
+}
 
-.post.post-variant-2::nth-child(4n + 2) .card {
+.post.post-variant-2 .unit-lg-horizontal {
+  align-items: center;
+}
+
+.post.post-variant-2:nth-child(4n + 2) .unit-lg-horizontal {
   flex-direction: row-reverse;
 }
 
-.post.post-variant-2:nth-child(4n + 2) .unit-body {
-  padding-right: 20px;
-  padding-left: 0;
+.post.post-variant-2 .unit-body {
+  padding: 40px 60px !important;
+}
+.post.post-variant-2 .unit-left {
+  width: 50%;
 }
 
 .post-variant-2 .post-link {
@@ -31438,6 +31458,15 @@ label span {
 
 .post-variant-2 .post-link:hover {
   color: #8f415e;
+}
+
+.post-variant-1 .post-caption a {
+  color: #e789ac !important;
+  font-family: "Bip";
+}
+
+.post-variant-1 .post-caption:hover a {
+  color: #8f415e !important;
 }
 
 .post .post-default .post-variant-3 h2 {
@@ -31459,6 +31488,28 @@ body {
   background-color: #e3f3f2;
 }
 
-.banner {
-  padding: 30px 0;
+@media screen and (max-width: 1024px) {
+  .post.post-variant-2 .unit-body {
+    padding: 40px 60px 40px 20px !important;
+  }
+  .post.post-variant-2:nth-child(4n + 2) .unit-body {
+    padding: 40px 20px 40px 60px !important;
+  }
+  .post.post-variant-2 .h5 {
+    font-size: 16px;
+  }
+  .post.post-variant-2 p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .post.post-variant-2 .unit-left {
+    width: 100%;
+  }
+  .post.post-variant-2 .unit-lg-horizontal {
+    flex-direction: column !important;
+  }
+  .post.post-variant-2 .unit-body {
+    padding: 40px 20px 40px 60px !important;
+  }
 }
