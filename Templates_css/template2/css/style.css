@@ -31445,7 +31445,10 @@ label span {
 }
 
 .post.post-variant-2 .unit-body {
-  padding: 40px 60px !important;
+  padding: 30px 66px 30px 16px !important;
+}
+.post.post-variant-2:nth-child(4n + 2) .unit-body {
+  padding: 30px 16px 30px 60px !important;
 }
 .post.post-variant-2 .unit-left {
   width: 50%;
@@ -31488,12 +31491,19 @@ body {
   background-color: #e3f3f2;
 }
 
+.post.post-variant-2 .h5 {
+  font-size: 18px;
+}
+.post.post-variant-2 p {
+  font-size: 14px;
+}
+
 @media screen and (max-width: 1024px) {
   .post.post-variant-2 .unit-body {
-    padding: 40px 60px 40px 20px !important;
+    padding: 30px 66px 30px 16px !important;
   }
   .post.post-variant-2:nth-child(4n + 2) .unit-body {
-    padding: 40px 20px 40px 60px !important;
+    padding: 30px 16px 30px 60px !important;
   }
   .post.post-variant-2 .h5 {
     font-size: 16px;
@@ -31509,7 +31519,7 @@ body {
   .post.post-variant-2 .unit-lg-horizontal {
     flex-direction: column !important;
   }
-  .post.post-variant-2 .unit-body {
-    padding: 40px 20px 40px 60px !important;
+  .post.post-variant-2 .unit-body,  .post.post-variant-2:nth-child(4n + 2) .unit-body {
+    padding: 30px 16px 35px 60px !important;
   }
 }
