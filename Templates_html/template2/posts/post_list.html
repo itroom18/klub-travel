@@ -1,4 +1,4 @@
-{% extends "views/template2/main.html" %}
+{% extends "views/template12/main.html" %}
 
 
 {% block content %}
@@ -96,10 +96,6 @@
               <div class="cell-lg-8">
 
 {% for post in posts %}
-                {% if loop.index == 3 %}
-                  <div class="divider divider-dashed"></div>
-                  {% include "views/template2/banner_top.html" %}
-                {% endif %}
                 <div class="divider divider-dashed"></div>
                 <div class="post post-variant-2">
                   <div class="unit unit-xl-horizontal text-sm-left unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">
@@ -125,7 +121,7 @@
                 
 {% endfor %}
                 <div class="divider divider-dashed"></div>
-                {% include "views/template2/pagination.html" %}			
+                {% include "views/template12/pagination.html" %}			
  
               </div>
               
@@ -135,11 +131,11 @@
                 <div class="range">
                   <div class="cell-sm-8 cell-sm-preffix-2 cell-lg-12 cell-lg-preffix-0 cell-xs-push-1 cell-lg-push-1">
                     <div class="bg-gray-base context-dark section-top-15 section-bottom-30 inset-p-left-6 inset-p-right-6">
-                       {% include "views/template2/search/search.html" %}
+                       {% include "views/template12/search/search.html" %}
                     </div>
                     
                     <div class="section-top-15 section-bottom-30 inset-p-left-6 inset-p-right-6">
-                       {% include "views/template2/banner_left.html" %}  
+                       {% include "views/template12/banner_left.html" %}  
                     </div>
                   </div>
 

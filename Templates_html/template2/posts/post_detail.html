@@ -1,4 +1,4 @@
-{% extends "views/template2/main.html" %}
+{% extends "views/template12/main.html" %}
 {% block title %}<title>{{post.name}}</title>{% endblock %}
 {% block meta %}
 <meta property="og:title" content="{{post.name}}"/>
@@ -16,7 +16,7 @@
                 <div class="range range-lg-reverse">
                   <div class="cell-lg-11">
                     <div class="banner">
-                      {% include "views/template2/banner_top.html" %}
+                      {% include "views/template12/banner_top.html" %}
                     </div>
                     <div class="post post-default post-variant-3">
                       <div class="text-left"><a href="{{host}}category/{{post.categories}}.html"><span class="label label-warning">{{ _categories[post.categories].name}}</span></a></div>
@@ -31,7 +31,7 @@
                       {% if tags != ''%}<div class="post-meta"><span class="post-meta-tags">Tagged in : {% for slug, tag in tags %} <span><a href="{{host}}post/tag/{{tag.slug}}.html">{{tag.name}}</a></span>{% endfor %}</span></div>{% endif %}
                     </div>
                     
-                    {% include "views/template2/subpagination.html" %}
+                    {% include "views/template12/subpagination.html" %}
 
                   </div>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="range">
                   <div class="cell-sm-8 cell-sm-preffix-2 cell-lg-12 cell-lg-preffix-0 cell-xs-push-1 cell-lg-push-1">
                     <div class="bg-gray-base context-dark section-top-15 section-bottom-30 inset-p-left-6 inset-p-right-6">
-                      {% include "views/template2/search/search.html" %}
+                      {% include "views/template12/search/search.html" %}
                     </div>
                   </div>
                   <div class="cell-sm-8 cell-sm-preffix-2 cell-lg-12 cell-lg-preffix-0 cell-xs-push-1 cell-lg-push-1">
